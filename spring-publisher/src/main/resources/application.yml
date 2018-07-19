@@ -1,0 +1,33 @@
+server:
+  port: 8080
+spring:
+  main:
+    banner-mode: 'off'
+  mvc:
+    favicon:
+      enabled: false
+    jmx:
+      enabled: true
+  cloud:
+    stream:
+      binding:
+        error:
+          destination: DLQ
+        orderIn:
+          contentType: application/json
+          destination: orderIn
+        orderOut:
+          contentType: application/json
+          destination: orderOut
+      kafka:
+        binder:
+          brokers: localhost:9092
+          zkNodes: localhost:2181
+          configuration:
+            default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+            default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /v2/api-docs
