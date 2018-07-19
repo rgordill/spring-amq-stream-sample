@@ -11,7 +11,7 @@ public interface OrderInterface {
 	  @Input(OrderInterface.INPUT)
 	  SubscribableChannel input();
 	  
-	  String OUTPUT = "ourderOut";
+	  String OUTPUT = "orderOut";
 
 	  @Output(OrderInterface.OUTPUT)
 	  MessageChannel output();

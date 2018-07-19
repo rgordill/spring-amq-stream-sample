@@ -10,15 +10,15 @@ spring:
       enabled: true
   cloud:
     stream:
-      binding:
-        error:
-          destination: DLQ
+      bindings:
         orderIn:
           contentType: application/json
           destination: orderIn
         orderOut:
           contentType: application/json
           destination: orderOut
+          producer:
+            headerMode: raw
       kafka:
         binder:
           brokers: localhost:9092

@@ -5,12 +5,9 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
-import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,7 +48,9 @@ public class OrderController {
     	
     	c.setId(UUID.randomUUID().toString());
     	
-    	orderInterface.output().send(MessageBuilder.withPayload(c).build());
+    	Message m = MessageBuilder.withPayload(c).build();
+    	log.info("Sending " + m);
+    	orderInterface.output().send(m);
     	
         return c;
     }
