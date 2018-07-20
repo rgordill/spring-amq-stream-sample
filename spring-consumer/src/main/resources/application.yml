@@ -18,6 +18,7 @@ spring:
         orderRequest:
           contentType: application/json
           destination: orderRequest
+          group: consumer
         orderResponse:
           contentType: application/json
           destination: orderResponse
