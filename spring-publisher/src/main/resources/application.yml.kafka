@@ -19,11 +19,13 @@ spring:
           destination: orderOut
           producer:
             headerMode: raw
-      artemis:
+      kafka:
         binder:
-          transport: org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactory
-          host: localhost
-          port: 61616
+          brokers: localhost:9092
+          zkNodes: localhost:2181
+          configuration:
+            default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+            default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
 springfox:
   documentation:
     swagger:
