@@ -8,6 +8,10 @@ spring:
       enabled: false
     jmx:
       enabled: true
+  artemis:
+    transport: org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactory
+    host: broker-amq-tcp.amq-broker.svc
+    port: 61616
   cloud:
     stream:
       bindings:
@@ -19,11 +23,12 @@ spring:
           destination: orderOut
           producer:
             headerMode: raw
-      artemis:
-        binder:
-          transport: org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactory
-          host: localhost
-          port: 61616
+#      artemis:
+#        binder:
+#          transport: org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactory
+#          host: localhost
+#          host: broker-amq-tcp.amq-broker.svc
+#          port: 61616
 springfox:
   documentation:
     swagger:
