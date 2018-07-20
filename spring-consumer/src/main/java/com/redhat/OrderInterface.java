@@ -6,12 +6,12 @@ import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.SubscribableChannel;
 
 public interface OrderInterface {
-	  String INPUT = "orderResponse";
+	  String INPUT = "orderRequest";
 
 	  @Input(OrderInterface.INPUT)
 	  SubscribableChannel input();
 	  
-	  String OUTPUT = "orderRequest";
+	  String OUTPUT = "orderResponse";
 
 	  @Output(OrderInterface.OUTPUT)
 	  MessageChannel output();

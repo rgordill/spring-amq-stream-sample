@@ -37,7 +37,6 @@ public class OrderController {
     	return null;
     }
 
-//    @SendTo(OrderInterface.OUTPUT)
     @RequestMapping(method=RequestMethod.PUT,value="/order")
     @ApiOperation(
             value = "Create a Order",
@@ -47,6 +46,7 @@ public class OrderController {
     		) {
     	
     	c.setId(UUID.randomUUID().toString());
+    	c.setStatus("requested");
     	
     	Message m = MessageBuilder.withPayload(c).build();
     	log.info("Sending " + m);
