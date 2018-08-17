@@ -46,7 +46,8 @@
     		<version>${spring-cloud-stream.version}</version>
 		</dependency>
 
-		<!-- Artemis (AMQ) -->		
+		<!-- Artemis (AMQ) -->
+		
 		<dependency>
   			<groupId>org.apache.activemq</groupId>
     		<artifactId>artemis-commons</artifactId>
@@ -74,7 +75,7 @@
 		<dependency>
   			<groupId>me.snowdrop</groupId>
   			<artifactId>spring-cloud-stream-binder-artemis</artifactId>
-  			<version>0.0.3-SNAPSHOT</version>
+  			<version>0.0.2</version>
 		</dependency>
 		
 		<!-- kafka>

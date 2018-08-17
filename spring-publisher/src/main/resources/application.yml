@@ -6,12 +6,19 @@ spring:
   mvc:
     favicon:
       enabled: false
-    jmx:
-      enabled: true
   artemis:
-    transport: org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactory
-#    host: broker-amq-tcp.amq-broker.svc
-#    port: 61616
+    host: amq-demo-app-amq-tcp-amq7.172.120.0.1.nip.io
+#    port: 61617
+    port: 443
+    user: demo
+    password: redhat01
+    sslEnabled: true
+    keyStorePath: /home/rgordill/git/oc-cluster-wrapper/plugins.d/client.ks
+    keyStorePassword: changeme
+    trustStorePath: /home/rgordill/git/oc-cluster-wrapper/plugins.d/broker.ks
+    trustStorePassword: changeme
+    verifyHost: true
+    useTopologyForLoadBalancing: false
   cloud:
     stream:
       bindings:

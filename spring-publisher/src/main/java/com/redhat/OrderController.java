@@ -27,6 +27,16 @@ public class OrderController {
     @Autowired
     private OrderInterface orderInterface;
 	
+    @RequestMapping(method=RequestMethod.GET,value="/order/{id}")
+    @ApiOperation(
+            value = "Get Order",
+            notes = "Get a Order by id")
+    public Order getOrder(
+    		@PathVariable(value="id") String id
+    		) {
+    	return null;
+    }
+
     @RequestMapping(method=RequestMethod.PUT,value="/order")
     @ApiOperation(
             value = "Create a Order",
